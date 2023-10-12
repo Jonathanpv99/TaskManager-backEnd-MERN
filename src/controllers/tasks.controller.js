@@ -32,7 +32,7 @@ export const createTask = async ( req, res ) => {
 
 
     } catch (error) {
-        res.status(500).json( { message: error.message });
+        res.status(500).json( [ "" + error.message ]);
     }
 };
 
@@ -49,7 +49,7 @@ export const updateTask = async ( req, res ) => {
 
     const task = await Task.findByIdAndUpdate( req.params.id, req.body, {new: true} );
 
-    if( !task ) return res.status(404).json({message: 'Task not found'});
+    if( !task ) return res.status(404).json(['Task not found']);
     res.json( task );
 
 };
