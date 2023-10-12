@@ -7,9 +7,9 @@ import { createTaskSchema } from '../schemas/task.schema.js'
 const router = Router();
 
 router.get('/tasks', authRequired,getTasks);  //obtener todo
-router.get('/tasks/:id', authRequired, getTask); //obtener una
+router.get('/task/:id', authRequired, getTask); //obtener una
 router.post('/tasks', authRequired, validateSchema(createTaskSchema), createTask); //guardar
 router.delete('/tasks/:id', authRequired, deleteTask); //eliminar
-router.put('/tasks/:id', authRequired, updateTask); //actualizar
+router.put('/task/:id', authRequired, updateTask); //actualizar
 
 export default router;
